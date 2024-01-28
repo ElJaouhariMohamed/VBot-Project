@@ -1,0 +1,105 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="../css/common-page.css">
+<section class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id='containe' ng-controller="chatCtrl">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><img src="../images/logos/android-chrome-512x512.png" style="width:2em;height:auto;" /> VBot V1.0 !</h3>
+                    </div>
+                </div>
+                <div class="row inside">
+                    <div class="col-md-12">
+                        <div id="MessageContent">
+                            <div class="row">
+                                <div class="col-md-12 owner-message">
+                                    <p>Hello <b>{{uFname}}</b>, Welcome to VBot, IMA is here to answer your questions.</p>
+                                    <p class=" time2 ">{{pageTime}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <form id="chatForm" ng-submit="sendMsg()">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" rows="1" placeholder="Enter your message here" id="msg" ng-model="msg">
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="cus-btn-normal" id="Reply">
+                          <i class="fa-solid fa-paper-plane" style="color: #0a0a0aeb;"></i>
+                        </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+        Element.prototype.remove = function() {
+            this.parentElement.removeChild(this);
+        }
+        NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+            for(var i = this.length - 1; i >= 0; i--) {
+                if(this[i] && this[i].parentElement) {
+                    this[i].parentElement.removeChild(this[i]);
+                }
+            }
+        }
+        var dots = document.getElementsByClassName("typing-dots")[0];
+
+        function simulateTyping() {
+        dots.style.display = "inline-block";
+        setTimeout(function() {
+            dots.style.display = "none";
+        }, 2000); // Adjust the duration as needed
+        }
+        var input = document.getElementById("msg");
+        input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            //console.log('ENTER HIT')
+            event.preventDefault();
+            document.getElementById("chatForm").submit();
+        }
+        }); 
+</script>
+
+<div class="row expose2 ">
+    <div class="col-md-6 ">
+        <img src="../images/backgrounds/working.png " alt="Working..." width="100% " height="auto ">
+    </div>
+    <div class="col-md-6 ">
+        <p class=" description font-effect-outline ">
+            VBot is a chatbot to help ENSA Khouribga and staff to find information easily, to interact with VBot, write your message and click send or Enter!
+        </p>
+    </div>
+</div>
+<div class="row expose1 ">
+    <div class="col-md-6 ">
+        <p class=" description  ">
+            VBot sometimes takes naps so we can maintain the code, add new functionality or just to prevent connexion errors, don't worry and do as he said, visit us another time!
+        </p>
+    </div>
+    <div class="col-md-6 ">
+        <img src="../images/backgrounds/asleep.png " alt="Asleep " width="100% " height="auto ">
+    </div>
+</div>
+<div class="row expose2 ">
+    <div class="col-md-6 ">
+        <img src="../images/backgrounds/absurdity.png " alt="Absurd " width="100% " height="auto ">
+    </div>
+    <div class="col-md-6 ">
+        <p class="description font-effect-outline ">If your prompt wasn't well understood please try to :</p>
+        <ul>
+            <li>Check your internet connexion.</li>
+            <li>Check if your message is ENSA Khouribga related.</li>
+            <li>Reformulate your message in simple and clear manner.</li>
+        </ul>
+        <p class="description font-effect-outline ">If you checked everything above and still don't get a response, maybe your question is not covered, but don't worry it will be in a future release!</p>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project Miraculous</title>
+    <!-- Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=neon|outline|emboss|shadow-multiple">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!--  //Style -->
+
+    <!-- ICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logos/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logos/favicon-16x16.png">
+    <link rel="manifest" href="images/logos/site.webmanifest">
+    <!-- //ICON -->
+
+    <!-- Scripts-->
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.js" integrity="sha512-tfrAMEcgRMbx1MeQrt2H/TrwaKG+m0ngUQ7R+hM9ZLD3SbwAvXsL1p0DwbTwv05EfES22HtfIged4iuHqmWYsw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-cookies/1.8.3/angular-cookies.min.js" integrity="sha512-eM4WApD53FS2pv6fIgY4E2utWB82WSp3QPeoemIzA9VeOv9vQ1UzYBKIkXAwS71SCilEFpfkwtCZHj2uSS3keQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- //AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- //Scripts-->
+</head>
+
+<body ng-app="vbotApp" ng-controller="mainCtrl">
+    <header>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="images/logos/logo-light.png" alt="VBot" width="160" height="48" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="#/!">Home</a>
+                        <!--<a class="nav-link" ng-show="$root.signedIn" href="#!chat">Chat</a>-->
+                        <a class="nav-link" ng-show="$root.signedIn" href="#!chat">Chat</a>
+                        <a class="nav-link" href="#!about">About Us</a>
+                    </div>
+                    <div class="navbar-nav signs">
+                        <a class="nav-link" ng-hide="$root.signedIn" href="#!signup">Sign Up</a>
+                        <a class="nav-link" ng-hide="$root.signedIn" href="#!signin">Sign In</a>
+                        <a class="nav-link" ng-show="$root.signedIn" href="#" >{{uFname}}</a>
+                        <a class="nav-link" ng-show="$root.signedIn" href="#" ng-click="$root.signOut()">Sign Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="row heading">
+        <div class="col-md-6">
+            <img src="images/logos/logof-light.png" alt="VBot" width="75%" height="auto">
+        </div>
+        <div class="col-md-6">
+            <p class="slogan border-left">Building a chatbot was never easier !</p>
+        </div>
+    </div>
+    <div ng-view></div>
+    <div class="footer">
+        <footer class="py-3 my-4">
+            <div class="nav justify-content-center pb-3 mb-3">
+                <img src="images/logos/logof-light.png" alt="VBot" width="160" height="48">
+            </div>
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3 font-effect-emboss">
+                <li class="nav-item"><a href="#/!" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a ng-show="$root.signedIn" href="#!chat" class="nav-link px-2 text-muted">Chat</a></li>
+                <li class="nav-item"><a href="#!about" class="nav-link px-2 text-muted">About Us</a></li>
+            </ul>
+            <p class="text-center text-muted"><em>Copyright &copy;{{year}} Ilyas El Amrani & Mohamed El Jaouhari - VBot V1.0.0</em></p>
+        </footer>
+    </div>
+</body>
+<!-- APP -->
+<script type="text/javascript" src="js/app/app.js"></script>
+<!-- //APP -->
+
+<!-- Controllers -->
+<script type="text/javascript" src="js/controllers/mainCtrl.js"></script>
+<script type="text/javascript" src="js/controllers/chatCtrl.js"></script>
+<script type="text/javascript" src="js/controllers/signinCtrl.js"></script>
+<script type="text/javascript" src="js/controllers/signupCtrl.js"></script>
+<!-- //Controllers -->
+
+</html>

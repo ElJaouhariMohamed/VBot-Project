@@ -1,0 +1,82 @@
+
+<div class="container" id="signup" >
+    <div class="row">
+        <div class="col-md-4 signupimg">
+            <img src="../images/backgrounds/signup.jpg" alt="signup" style="width:100%;height:auto">
+        </div>
+        <div class="col-md-8 signup">
+            <form name="signupFrm" novalidate ng-controller="signupCtrl" ng-submit="signup()" >
+                <h1>Hello there ! Sign up now and be assissted by AI today</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label> Academic Email : </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="email" name="email" ng-model="newU.email" class="form-control-lg" required>
+                        <div ng-show="signupFrm.email.$invalid && signupFrm.email.$touched" class="alert alert-warning">Please entre a valid email.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label> First Name : </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" name="fname" ng-model="newU.fname" class="form-control-lg" required>
+                        <div ng-show="signupFrm.fname.$invalid && signupFrm.fname.$touched" class="alert alert-warning">Please entre a valid first name.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label> Last Name : </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" name="lname" ng-model="newU.lname" class="form-control-lg" required>
+                        <div ng-show="signupFrm.lname.$invalid && signupFrm.lname.$touched" class="alert alert-warning">Please entre a valid last name.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label> Type : </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="radio" name="type" ng-model="newU.type" required value="Prof"><span class="text-center">Professor</span>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="radio" name="type" ng-model="newU.type" required value="Admin"><span class="text-center">Administrator</span>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="radio" name="type" ng-model="newU.type" required value="Stud"><span class="text-center">Student</span>
+                    </div>
+                    <div ng-show="signupFrm.type.$invalid && signupFrm.type.$touched" class="alert alert-warning">Please select one.</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label> Password : </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" name="password" ng-model="newU.pass" class="form-control-lg" required>
+                        <div ng-show="signupFrm.password.$invalid && signupFrm.email.$touched" class="alert alert-warning">Please entre a valid password.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label> Confirm Password : </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="password" name="cpassword" ng-model="newU.cpass" class="form-control-lg" required>
+                        <div ng-show="signupFrm.cpassword.$invalid && signupFrm.email.$touched || (signupFrm.cpassword.$modelValue != signupFrm.password.$modelValue)" class="alert alert-warning">Please confirm your password.</div>
+                    </div>
+                </div>
+                <div class="row"><p>Already signed up ? <a href="#!signin">Sign In!</a></p></div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <button class="btn btn-success btn-lg w-100" type="submit">Sign up</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
